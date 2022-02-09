@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body >
+    <div class="container" style="padding-top: 100px">
+    <h1 class='text-center'>URL SHORTNER</h1>
+    <form action="/shortenurl" method="post" autocomplete="off" class="my-5 form-inline">
+        <label for="LongURL" class="sr-only" >LONG URL</label>
+        <label for="CustomUrl" class="sr-only" >Custom URL</label>
+        <label for="Expiry Time in hours" class="sr-only" >ExpiryTime</label>
+        <input required placeholder="Url" type="url" name="LongUrl" id="LongUrl" class="form-control col mr-4">
+        <input  placeholder="CustomUrl"  name="CustomUrl" id="CustomUrl" class="form-control col mr-4">
+        <input  placeholder="Expiry Time in hours default is 24 hour"  name="ExpiryTime" id="ExpiryTime" class="form-control col mr-4">
+        <button class="btn btn-success" type="submit">Create Url</button>
+    </form>
+
+    <div class="container container-table text-center blockquote fw-bolder"  >
+        
+       
+        <% if (locals.shorturls1) { %>
+            <h1><%= text %> </h1>
+            <a href="<%= shorturls1 %>" target="blank"><%= shorturls1 %> </a>
+            <% } %>
+ 
+
+      </div>
+</div>
+</body>
+</html>
