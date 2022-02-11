@@ -118,6 +118,12 @@ app.post('/shortenurl', async (req,res)=>{
 
 })
 
+app.get("/analytics",async (req, res) => {
+    const shortUrlsa = await ShortUrl.find()
+    shortUrlsa.sort((a, b) => b.Clicks - a.Clicks);
+    res.render('analytics', { shortUrls: shortUrlsa })
+  })
+
 app.get('/:shortUrl', async (req,res)=>{
    const shortUrl= await ShortUrl.findOne({shorturl:req.params.shortUrl})
 
@@ -128,4 +134,4 @@ app.get('/:shortUrl', async (req,res)=>{
    res.redirect(shortUrl.fullurl)
 })
 
-app.listen(process.env.Port || 8002);
+app.listen(process.env.PORT || 3000)
